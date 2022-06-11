@@ -1,0 +1,28 @@
+
+{% extends 'events/base.html' %}
+
+{% block content %}
+
+
+
+          <h1>Add Your Request To Our Network</h1>
+
+          <br/><br/>
+            {% if submitted %}
+                You submitted successfully!!
+            {% else %}
+
+
+          <form action="" method="POST" >
+
+            {% csrf_token %}
+            {{ form.as_p }}
+
+            <input type="submit" value="Submit" class="btn btn-secondary">
+
+          </form>
+
+            {% endif %}
+
+
+{% endblock %}
