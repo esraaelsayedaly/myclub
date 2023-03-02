@@ -3,8 +3,8 @@
 import os
 import sys
 
-
-def main():
+# def main():
+if __name__ == '__main__':
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'myclub_website.settings')
     try:
@@ -17,6 +17,5 @@ def main():
         ) from exc
     execute_from_command_line(sys.argv)
 
-
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#    main()

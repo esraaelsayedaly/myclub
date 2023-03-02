@@ -7,7 +7,7 @@ from .models import MyClubUser
 from .models import Event
 
 # admin.site.register(Venue, VenuAdmin)
-#admin.site.register(MyClubUser)
+# admin.site.register(MyClubUser)
 
 
 # admin.site.register(Event)
@@ -17,11 +17,13 @@ admin.site.site_header = "Our Network Admin"
 
 @admin.register(MyClubUser)
 class MyClubUser(admin.ModelAdmin):
-    list_display = ('first_name', 'email', 'need_job', 'medical', 'single', 'volunteer')
+    list_display = ('first_name', 'last_name', 'email', 'gender', 'financial_help', 'need_job', 'medical', 'single', 'volunteer', 'phone', 'address', 'know_job')
+
     ordering = ('first_name',)
     search_fields = ('first_name', 'last_name', 'phone', 'address', 'email')
-    list_filter = ('single', 'need_job', 'medical', 'volunteer', 'financial_help',
-                   'need_training', 'know_job', 'driving', 'email', 'first_name')
+    list_filter = ('gender', 'single', 'financial_help', 'need_job', 'medical',
+                   'volunteer', 'need_training',
+                   'know_job', 'driving')
 
 
 @admin.register(Venue)
@@ -37,4 +39,3 @@ class EventAdmin(admin.ModelAdmin):
     list_display = ('name', 'event_date', 'venue')
     list_filter = ('event_date', 'venue')
     ordering = ('event_date',)
-

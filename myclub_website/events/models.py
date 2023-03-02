@@ -16,20 +16,36 @@ class Venue(models.Model):
 
 
 class MyClubUser(models.Model):
+    # Case_CHOICES = (
+    #   ('Yes', 'Yes'),
+    #   ('No', 'No')
+    # )
+
     first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=30)
     email = models.EmailField('User Email', max_length=100)
     phone = models.CharField('Your phone', max_length=100, default='')
     address = models.CharField('Your Address', max_length=100, default='')
+    #state = models.USStateField('Your State', default=''),
 
-    financial_help = models.BooleanField('Need Finance Help', default=False)
-    need_job = models.BooleanField('Need Job', default=False)
-    need_training = models.BooleanField('Need Training/Monitering', default=False)
-    know_job = models.BooleanField('Know a job opening in your team/company/business', default=False)
-    driving = models.BooleanField('Do you have a driving License', default=False)
-    medical = models.BooleanField('Need medical help', default=False)
-    single = models.BooleanField('Single', default=False)
-    volunteer = models.BooleanField('Willing to volunteer', default=False)
+    Gender_CHOICES = (
+        ('male', 'MALE'),
+        ('Female', 'Female'),
+    )
+
+    gender = models.CharField(max_length=6, choices=Gender_CHOICES, default='Male')
+    #birthdate = models.DateTimeField('Birth date', blank=True, null=True)
+    need_job = models.BooleanField('Need Job', default='')
+
+    financial_help = models.BooleanField('Need Financial Help', default='')
+
+    # need_job = models.BooleanField('You Need Job', choices=Case_CHOICES, default='No')
+    need_training = models.BooleanField('Need Training', default='')
+    know_job = models.BooleanField('You Know a Job Vacancy', default='')
+    driving = models.BooleanField('Have Driving Licence', default='')
+    medical = models.BooleanField('Need Medical Insurance', default='')
+    single = models.BooleanField('Single', default='')
+    volunteer = models.BooleanField('Can be Volunteer', default='')
 
     def __str__(self):
         return self.first_name + ' ' + self.last_name

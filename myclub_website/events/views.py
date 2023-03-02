@@ -16,7 +16,7 @@ def add_myclubuser(request):
             form.save()
             return HttpResponseRedirect('/add_myclubuser?submitted=True')
     else:
-        form = MyClubUserForm
+        form = MyClubUserForm()
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'events/add_myclubuser.html', {'form': form, 'submitted': submitted})
