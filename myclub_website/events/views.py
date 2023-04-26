@@ -20,7 +20,7 @@ def add_myclubuser(request):
         if 'submitted' in request.GET:
             submitted = True
     return render(request, 'events/add_myclubuser.html', {'form': form, 'submitted': submitted})
-
+    MyClubUser.object.all()
 
 def add_venue(request):
     submitted = False

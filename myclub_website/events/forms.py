@@ -35,7 +35,6 @@ class MyClubUserForm(ModelForm):
             # 'volunteer': forms.RadioSelect(attrs={'class': 'form-check-input'}),
         }
         gender = forms.ChoiceField(widget=forms.ChoiceField)
-        #birthdate = forms.DateTimeField()
         need_job = forms.BooleanField(widget=forms.RadioSelect)
 
         financial_help = forms.BooleanField(widget=forms.RadioSelect)
